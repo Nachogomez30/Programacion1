@@ -22,3 +22,24 @@ def fill_word(characters,hidden_word):
         if condition == False:
             word += "_"
     return word
+
+def validation(number, card):
+    if number < 1 or number > 75:
+        return False
+    for x in card:
+        if number in x:
+            return False
+    return True
+
+# MOSTRAR CARTA DE BINGO:
+def show_card(card):
+    print("╔════════════════════════════════╗")
+    for i in range(5):
+        print(f"║","{:2s}     {:2s}     {:2s}     {:2s}     {:2s}".format(card[i][0],card[i][1],card[i][2],card[i][3],card[i][4]),"║")
+    print("╚════════════════════════════════╝")
+    
+# BORRA LA TERMINAL
+import os
+def clear_terminal():
+    os.system('clear' if os.name == 'posix' else 'cls')
+
