@@ -8,7 +8,7 @@ print("-----------------------------")
 card = [[]*5 for _ in range(5)]
 
 for i in range(5):
-    print("Línea",i)
+    print("Línea",i+1)
     for j in range(5):        
         while True:
             condition = True
@@ -19,6 +19,7 @@ for i in range(5):
                 continue
             
             for k in range(5):
+                num = str(num)
                 if num in card[k]:
                     print("El número ya fue ingresado")
                     condition = False
@@ -43,7 +44,7 @@ while bingo==False:
     ball_number = str(random.choice(balls))
     balls.remove(ball_number)
     
-    print("El número es",ball_number)
+    print("El número que salio es:",ball_number)
     
     for i in range(5):
         for j in range(5):
