@@ -8,6 +8,7 @@ Funciones.clear_terminal()
 print("TRABAJO PRACTICO Nº6")
 
 while True:
+
     option = int(input("Ingrese el numero del ejercicio (1 - 13): "))
     if option>=1 and option<=13:
         print("\n~ Ejercicio",option,"~\n")
