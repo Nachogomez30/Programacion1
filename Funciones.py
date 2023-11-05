@@ -83,7 +83,7 @@ def selection_sort(list, key):
         for j in range(i + 1, n):
             if list[j][key] < list[idx][key]:
                 idx = j
-        list[i], list[idx] = list[idx], lit[i]
+        list[i], list[idx] = list[idx], list[i]
 
 # FUNCIONES TPNº8
 def count_digits(n):
@@ -109,3 +109,27 @@ def positions_of(a, b):
             return find_positions(text, substring, index + 1)
     
     return find_positions(a, b, 0)
+
+def is_mutants(dna):
+    count = 0
+    # Verificación de Filas:
+    for row in dna:
+        for j in range(len(row) - 3):
+            if row[j] == row[j+1] == row[j+2] == row[j+3]:
+                count += 1
+    # Verificación de Columnas:
+    for i in range(len(dna) - 3):
+        for j in range(len(dna[i])):
+            if dna[i][j] == dna[i+1][j] == dna[i+2][j] == dna[i+3][j]:
+                count += 1
+    # Verificación de Diagonal:
+    for i in range(len(dna) - 3):
+        for j in range(len(dna[i]) - 3):
+            if dna[i][j] == dna[i+1][j+1] == dna[i+2][j+2] == dna[i+3][j+3]:
+                count += 1
+    # Verificación de Diagonal Inversa:
+    for i in range(len(dna) - 3):
+        for j in range(3, len(dna[i])):
+            if dna[i][j] == dna[i+1][j-1] == dna[i+2][j-2] == dna[i+3][j-3]:
+                count += 1
+    return count >= 2
